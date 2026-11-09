@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz | Abandono escolar e suas consequências</title><link rel="stylesheet" href="css/style.css"></head><body>
+<header class="top"><a class="brand" href="index.html">Cadeira Vazia</a><button id="m" aria-label="Menu" aria-expanded="false">Menu</button><nav id="nav"><a href="index.html">Início</a><a href="introducao.html">Introdução</a><a href="objectivos.html">Objectivos</a><a href="desenvolvimento.html">Desenvolvimento</a><a href="solucoes.html">Soluções</a><a href="recomendacoes.html">Recomendações</a><a href="quiz.html" aria-current="page">Quiz</a><a href="questionario.html">Questionário</a><a href="conclusao.html">Conclusão</a><a href="referencias.html">Referências</a></nav></header>
+<section class="ph"><h1>Quiz</h1><p>Seis perguntas para testar o que aprendeste</p></section><main><section class="sec"><p>Testa o que aprendeste sobre o abandono escolar. Escolhe uma resposta em cada pergunta.</p><div id="q"></div><div id="res" class="c" hidden></div><button class="btn" id="re" hidden>Tentar de novo</button></section>
+<script>
+var Q=[
+["O que é o abandono escolar?",["Faltar um dia à escola","Deixar de estudar sem concluir o nível de ensino","Mudar para outra escola"],1,"Abandono é deixar de frequentar a escola sem concluir o nível em que o aluno estava."],
+["Qual destas é uma causa económica?",["Dificuldade em comprar material escolar e uniforme","Turmas bem organizadas","Boas notas"],0,"A pobreza da família é uma das causas mais comuns."],
+["Qual destes é um sinal de alerta?",["Participar nas aulas","Faltas frequentes e sem justificação","Fazer os trabalhos de casa"],1,"Faltas repetidas são um dos primeiros sinais de risco."],
+["Quem sofre as consequências do abandono escolar?",["Só o aluno","Só a escola","O aluno, a família, a comunidade e o país"],2,"Os efeitos alargam-se como ondas, do aluno até ao país."],
+["Qual é uma medida de prevenção?",["Ignorar as faltas","Acompanhar a assiduidade e contactar a família","Expulsar os alunos com dificuldades"],1,"Agir cedo e ligar a escola à família evita muitos abandonos."],
+["O que deve fazer um aluno que sente dificuldades?",["Esconder o problema","Pedir ajuda a um professor ou conselheiro","Deixar de ir à escola"],1,"Pedir ajuda é o primeiro passo para ultrapassar a dificuldade."]];
+var i=0,pts=0,box=document.getElementById("q"),res=document.getElementById("res"),re=document.getElementById("re");
+function show(){var q=Q[i];box.innerHTML='<div class="c"><h3>Pergunta '+(i+1)+' de '+Q.length+'</h3><p><strong>'+q[0]+'</strong></p><div id="o"></div><p id="fb" role="status"></p><button class="btn" id="nx" hidden>'+(i==Q.length-1?"Ver resultado":"Seguinte")+'</button></div>';
+var o=document.getElementById("o");q[1].forEach(function(t,k){var b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=function(){
+if(o.dataset.done)return;o.dataset.done=1;var ok=k==q[2];if(ok)pts++;b.classList.add(ok?"ok":"no");if(!ok)o.children[q[2]].classList.add("ok");
+document.getElementById("fb").textContent=(ok?"Correcto. ":"Incorrecto. ")+q[3];var n=document.getElementById("nx");n.hidden=false;n.onclick=function(){i++;i<Q.length?show():end();};};o.appendChild(b);});}
+function end(){box.innerHTML="";res.hidden=false;re.hidden=false;res.innerHTML="<h3>Resultado: "+pts+" em "+Q.length+"</h3><p>"+(pts>=5?"Muito bem! Já sabes bastante sobre o tema.":pts>=3?"Bom trabalho. Revê a página Desenvolvimento para melhorar.":"Lê com atenção as páginas Desenvolvimento e Soluções e tenta outra vez.")+"</p>";}
+re.onclick=function(){i=0;pts=0;res.hidden=true;re.hidden=true;show();};show();
+</script><div class="pn"><a href="recomendacoes.html">&larr; Recomendações</a><a href="questionario.html">Questionário &rarr;</a></div></main>
+<footer>Website educativo &middot; Tema 8: Abandono escolar e suas consequências<br>Grupo: [nome do grupo] &middot; Turma: [turma] &middot; Escola: [nome da escola]</footer>
+<script src="js/main.js"></script></body></html>

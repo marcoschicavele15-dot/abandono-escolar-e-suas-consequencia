@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questionário | Abandono escolar e suas consequências</title><link rel="stylesheet" href="css/style.css"></head><body>
+<header class="top"><a class="brand" href="index.html">Cadeira Vazia</a><button id="m" aria-label="Menu" aria-expanded="false">Menu</button><nav id="nav"><a href="index.html">Início</a><a href="introducao.html">Introdução</a><a href="objectivos.html">Objectivos</a><a href="desenvolvimento.html">Desenvolvimento</a><a href="solucoes.html">Soluções</a><a href="recomendacoes.html">Recomendações</a><a href="quiz.html">Quiz</a><a href="questionario.html" aria-current="page">Questionário</a><a href="conclusao.html">Conclusão</a><a href="referencias.html">Referências</a></nav></header>
+<section class="ph"><h1>Questionário</h1><p>Recolha de opiniões da turma sobre o abandono escolar</p></section><main><section class="sec"><p>Este questionário é <strong>anónimo</strong>. Não escrevas o teu nome nem dados pessoais. Os resultados abaixo aparecem apenas neste ecrã e servem para o grupo discutir o tema na turma. Para recolher respostas de muitos colegas, usem a versão impressa e contem os resultados.</p><div id="s"></div><button class="btn" id="imp">Imprimir questionário</button></section>
+<script>
+var S=[
+["Conheces algum colega que abandonou a escola?",["Sim","Não"]],
+["Qual achas que é a principal causa do abandono escolar?",["Falta de dinheiro","Gravidez precoce ou casamento prematuro","Falta de interesse","Problemas na família","Bullying ou violência"]],
+["A tua escola faz acompanhamento de alunos que faltam muito?",["Sim","Não","Não sei"]],
+["Já pensaste em deixar de estudar?",["Nunca","Algumas vezes","Muitas vezes"]],
+["Que ajuda seria mais útil para manter os alunos na escola?",["Apoio com material escolar","Aulas de reforço","Aconselhamento","Mais diálogo com as famílias"]]];
+var D=S.map(function(q){return q[1].map(function(){return 0;});}),el=document.getElementById("s");
+S.forEach(function(q,a){var c=document.createElement("div");c.className="c";c.style.margin="1rem 0";var h='<p><strong>'+(a+1)+'. '+q[0]+'</strong></p>';
+q[1].forEach(function(t,b){h+='<label style="display:block"><input type="radio" name="q'+a+'" value="'+b+'"> '+t+'</label>';});
+h+='<button class="opt" style="margin-top:.6rem;width:auto" data-a="'+a+'">Registar resposta</button><div id="r'+a+'"></div>';c.innerHTML=h;el.appendChild(c);
+c.querySelector("button").onclick=function(){var v=c.querySelector("input:checked");if(!v){document.getElementById("r"+a).textContent="Escolhe uma opção primeiro.";return;}
+D[a][+v.value]++;v.checked=false;draw(a);};});
+function draw(a){var t=D[a].reduce(function(x,y){return x+y;},0),h="<p><small>Respostas registadas: "+t+"</small></p>";
+S[a][1].forEach(function(o,b){var p=Math.round(D[a][b]*100/t);h+='<div>'+o+' ('+D[a][b]+')<div style="background:var(--line);border-radius:4px"><div style="background:var(--ink);height:10px;border-radius:4px;width:'+p+'%"></div></div></div>';});
+document.getElementById("r"+a).innerHTML=h;}
+document.getElementById("imp").onclick=function(){window.print();};
+</script><div class="pn"><a href="quiz.html">&larr; Quiz</a><a href="conclusao.html">Conclusão &rarr;</a></div></main>
+<footer>Website educativo &middot; Tema 8: Abandono escolar e suas consequências<br>Grupo: [nome do grupo] &middot; Turma: [turma] &middot; Escola: [nome da escola]</footer>
+<script src="js/main.js"></script></body></html>

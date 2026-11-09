@@ -1,0 +1,15 @@
+WEBSITE: Abandono escolar e suas consequencias (Tema 8)
+
+COMO ABRIR
+1. Extrai (descompacta) o ZIP.
+2. Abre o ficheiro index.html no navegador (Chrome, Firefox...). Funciona em telemovel e computador.
+
+O QUE EDITAR
+- Em cada pagina .html, no fim, substitui [nome do grupo], [turma] e [nome da escola].
+- Pagina Quiz e Questionario ja incluidas (o questionario nao guarda dados; contem os resultados e registem-nos no relatorio).
+- Em referencias.html, completa a lista com as fontes que o grupo realmente usou.
+- Se fizerem entrevistas ou questionarios, acrescentem os resultados em desenvolvimento.html
+  SEM nomes, fotografias ou dados pessoais dos participantes.
+
+COMO PUBLICAR (link para a apresentacao)
+Enviar a pasta para um servico gratuito como GitHub Pages, Netlify Drop ou Google Sites (importar HTML).
